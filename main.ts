@@ -1,7 +1,8 @@
 controller.player2.onEvent(ControllerEvent.Connected, function () {
+    music.playMelody("A B - F A B - F ", 120)
     controller.player2.moveSprite(mySprite2)
     projectile = sprites.createProjectileFromSprite(assets.image`blue fire ball`, mySprite2, 2, 3)
-    projectile.follow(mySprite, 80)
+    projectile.follow(mySprite, 60)
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     game.splash("you see, you will never win space creature!!!")
@@ -10,6 +11,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
     mySprite2.destroy()
     projectile.destroy()
     mySprite3 = sprites.create(assets.image`big alien death creature`, SpriteKind.Player)
+    pause(5000)
     game.over(false)
 })
 let mySprite3: Sprite = null
